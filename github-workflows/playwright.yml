@@ -18,6 +18,8 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      env:
+        URL: ${{ vars.URL }}
       run: npx playwright test tests/EX03-assertion.spec.ts  
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
