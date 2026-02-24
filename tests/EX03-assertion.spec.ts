@@ -4,7 +4,7 @@ import { LoginPage } from '../page-objects/LoginPage.ts'
 
 
 test('Login failed', async({page,IndexPage,loginPage,}) => {
-    await page.goto('https://katalon-demo-cura.herokuapp.com/')
+    await page.goto('/')
     //const indexPagee = new indexPage(page)
     await IndexPage.clickMakeAppointment()
 
