@@ -9,14 +9,15 @@ export class appointmentPage {
 
     constructor(page:Page){
         this.page = page;
-        this.calendar = page.locator(`#txt_visit_date`)
+        this.calendar = this.page.locator(`#txt_visit_date`)
         this.date = this.page.locator('td.day:not(.old)').filter({ hasText: /^22$/ });
         this.appointBtn = page.locator(`#btn-book-appointment`)
        
     }
 
      public async appointForm(): Promise<void>{
-        await this.calendar.click()
+        await this.calendar.waitFor({ state: 'visible' }); 
+        await this.calendar.click({ timeout: 60000 });
         await this.date.click()
         await this.appointBtn.click()
     }

@@ -11,6 +11,8 @@ test('Appointment', async({page,IndexPage,loginPage,AppointmentPage, Appointment
   
     await loginPage.inputLoginForm('John Doe','ThisIsNotAPassword')
 
+    await page.waitForLoadState('networkidle');
+
     await AppointmentPage.appointForm()
 
     await expect(AppointmentSuccess.successMessage).toHaveText(
